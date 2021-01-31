@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<script>if (location.protocol !== 'https:') {location.replace(`https:${location.href.substring(location.protocol.length)}`);}</script>
+    <link rel="icon" href="/images/whisper.png" type="image/gif" sizes="16x16">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/chat-style.css">
+    <title>Whisper Room</title>
+  </head>
+  <body onload="load();">
+    <div id="amethyst" style="position: fixed; top: 0%; left: 0%; z-index: -3;"></div>
+    <div class="changeUsernameContainer" id="changeUsernameContainer">
+			<div class="changeUsername">
+				<header class="join-header">
+					<h1><i class="fas fa-fire"></i> Whisper</h1>
+				</header>
+				<form id="ign-form">
+					<input
+						id="msg"
+						type="text"
+						placeholder="New Username"
+						required
+						autocomplete="off"
+						/>
+						<br>
+					<button class="btn-sc"><span>Done</span></button>
+				</form>
+			</div>
+		</div>
+		<div id="disconnectedContainer">
+			<div class="changeUsername">
+				<header class="join-header">
+					<h1><i class="fas fa-fire"></i> Whisper</h1>
+				</header>
+				<p class="disconnect-label">You have been disconnected. Refresh the app to reconnect.</p>
+				<button class="btn-dis" onclick="location.reload();"><span>Refresh</span></button>
+			</div>
+		</div>
+		<div class="center">
+    <div class="chat-container">
+    <header class="chat-header">
+      <h1><i onclick="togglesidebar();" id="togglemenu" class="fas fa-bars"></i><i class="fas fa-fire"></i>&nbsp;Whisper</h1>
+			<h1><spn id="online-widget"></spn>&nbsp;<i class="fas fa-user"></i></h1>
+    </header>
+    <main class="chat-main" id="chat-main">
+      <div class="chat-sidebar" id="sidebar">
+        <ul id="roominfo">
+          <li><i class="fas fa-comments"></i>&nbsp;&nbsp;Room&nbsp;Info</li>
+          <a class="sidebar-link">
+            <li id="copy-link" onClick="copylink();"><span class="tooltip-info" data-tooltip="Click to copy" onClick="copylink();"><spn style="font-size: 20px; cursor: pointer;">Copy&nbsp;Link</spn></span></li>
+          </a>
+          <a class="sidebar-link">
+            <li id="room-name"><span>Online:<span id="users-online">--</span></span></li>
+          </a>
+        </ul>
+        <br>
+        <ul id="client">
+          <li><i class="fas fa-user-alt"></i>&nbsp;&nbsp;Your Client</li>
+          <a class="sidebar-link">
+          <li class="sidebar-link-container" onclick="changeusername()"><span id="chusername-text">Change&nbsp;Username</span></li>
+          <a href="https://whisper.gg" class="sidebar-link">
+            <li class="sidebar-link-container"><span>Disconnect</span></li>
+        </ul>
+        <br>
+        <ul id="about">
+        <li><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Whisper</li>
+        <a class="sidebar-link" href="https://whisper.gg/about"><li class="sidebar-link-container"><span>About</span></li>
+        <a class="sidebar-link" href="https://whisper.gg/contact"><li class="sidebar-link-container"><span>Contact</span></li>
+        <a class="sidebar-link" href="https://forms.gle/waenPzteDUnkougu8" target="_blank" id="bugrep"><li class="sidebar-link-container"><span>Report&nbsp;a&nbsp;Bug</span></li></a>
+        </ul>
+        <div style="display: inline-flex; flex-grow: 1;" />
+        </div></div>
+			<div class="chat-messages" id="chat-messages"></div>
+    </main>
+    <div class="chat-form-container">
+    <form id="chat-form">
+    <input
+      id="msg"
+      type="text"
+      placeholder="Enter Message"
+      required
+      autocomplete="off"
+      />
+		<button class="sendbtn"><i class="fas fa-paper-plane"></i>&nbsp;Send</button>
+    </form>
+    </div>
+		</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.js" integrity="sha512-53y53BQwxZvk4YGd9SkHPqI7nDwlIIFZ4D2BSJG08Co7y6O3YsWeRtO6trPtdoyqfTCTkTbCulNosIAI6E4UvQ==" crossorigin="anonymous"></script>
+    <script src="https://whisper.gg/socket.io/socket.io.js"></script>
+    <script src="https://whisper.gg/js/main.js"></script>
+    <script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+	  <script>
+      function load() {
+        var amethyst = document.getElementById("amethyst");
+        while (amethyst.firstChild) {
+          amethyst.removeChild(amethyst.firstChild);
+        }
+        var colors = ['#347deb', '#34aeeb', '#347deb','#344feb', '#34c9eb']
+      var pattern = trianglify({
+      cellSize: 70,
+      variance: 1,
+      xColors: colors,
+      yColors: colors,
+      colorSpace: 'rgb',
+      strokeWidth: 1.51,
+      width: window.innerWidth,
+      height: window.innerHeight
+      });
+      document.getElementById('amethyst').appendChild(pattern.toCanvas())
+      }
+      window.addEventListener('resize', load);
+    </script>
+	</body>
+</html>

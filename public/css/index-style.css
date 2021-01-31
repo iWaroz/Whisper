@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+	--dark-color-a: #484959;
+	--dark-color-b: #5a5b6b;
+	--light-color: #cdcdd1;
+	--success-color: #5cb85c;
+	--error-color: #d9534f;
+	--whisper: #34aeeb;
+	--whisper-b: #347deb;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+button {
+	text-align: center;
+	color: black;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+.all-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+.join-container {
+	width: 500px;
+	height: fit-content(80vh);
+	color: #fff;
+	background: #484959;
+}
+
+@media (max-width: 600px) {
+	.join-container {
+		width: 100vw;
+		height: 100vh;
+		overflow: auto;
+	}
+
+	.all-container {
+		background: #5a5b6b;
+	}
+
+	input[type='text'] {
+		width: 90%;
+	}
+}
+
+.join-header {
+	text-align: center;
+	padding: 20px;
+	background: var(--dark-color-a);
+}
+
+.join-main {
+	padding: 30px 40px;
+	background: var(--dark-color-b);
+}
+
+.join-main p {
+	margin-bottom: 20px;
+}
+
+.join-main .form-control {
+	margin-bottom: 20px;
+}
+
+.join-main label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.join-main input[type='text'] {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+}
+
+.join-main select {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+}
+
+.join-main .btn {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.tooltip-info {
+	position: relative;
+	cursor: default;
+	font-size: 12px;
+}
+
+.tooltip-info::before,
+.tooltip-info::after {
+	--scale: 0;
+	--arrow-size: 5px;
+	--color: #242424;
+	position: absolute;
+	top: -.25rem;
+	left: 50%;
+	transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+	transition: 0.2s transform;
+	transform-origin: bottom center;
+}
+
+.tooltip-info::before {
+	--translate-y: calc(-100% - var(--arrow-size));
+	content: attr(data-tooltip);
+	color: white;
+	padding: .5rem;
+	border-radius: .3rem;
+	text-align: center;
+	width: max-content;
+	background: var(--color);
+}
+
+.tooltip-info:hover::before,
+.tooltip-info:hover::after {
+	--scale: 1;
+}
+
+.tooltip-info::after {
+	--translate-y: calc(-1 * var(--arrow-size));
+	content: '';
+	border: var(--arrow-size) solid transparent;
+	border-top-color: var(--color);
+	transform-origin: top;
+}
+
+/* Home menu */
+
+.tab {
+  overflow: hidden;
+  background-color: var(--dark-color-b);
+	display: flex;
+	justify-content: center;
+}
+
+.tab button {
+  background-color: rgba(0, 0, 0, 0.05);
+	color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tab button.active {
+  background-color: --var(--whisper);
+}
+
+.submitbtn {
+	background-color: var(--light-color) !important;
+	color: black !important;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+
+/* indev */
+
+.align-btnsc {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-sc {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-size: 15px;
+  background-color: #34aeeb !important;// #347deb;
+  padding: 17px 60px;
+  margin: 0 auto;
+  // box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+.btn-sc span {
+  position: relative; 
+  z-index: 1;
+}
+
+.btn-sc:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 140%;
+  background: #347deb;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.btn-sc:hover:after {
+		border-radius: 10%;
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
