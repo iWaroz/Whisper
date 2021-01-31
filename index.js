@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const http = require('http');
 const express = require('express');
@@ -9,7 +10,7 @@ const formatMessage = require('./utils/messages');
 const { userJoin, getCurrentUser } = require('./utils/users');
 
 // Customise the Bot name Here
-const botName = 'Whisper';
+const botName = process.env.BOTNAME ?? 'Whisper';
 
 function makeid(length) {
 var result = '';
@@ -108,5 +109,5 @@ io.on('connection', socket => {
 	})
 })
 
-const PORT = 3000;
+const PORT = process.env.PORT ?? 3000;
 server.listen(PORT, () => console.log(`Server running on ${PORT}`)); 
