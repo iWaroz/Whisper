@@ -10,7 +10,7 @@ const formatMessage = require('./utils/messages');
 const { userJoin, getCurrentUser } = require('./utils/users');
 
 // Customise the Bot name Here
-const botName = process.env.BOTNAME ?? 'Whisper';
+const botName = process.env.BOTNAME;
 
 function makeid(length) {
 var result = '';
@@ -109,5 +109,5 @@ io.on('connection', socket => {
 	})
 })
 
-const PORT = process.env.PORT ?? 3000;
+const PORT = process.env.PORT;
 server.listen(PORT, () => console.log(`Server running on ${PORT}`)); 
