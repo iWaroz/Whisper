@@ -60,6 +60,10 @@ app.get('/twitter', function(req, res) {
 	res.redirect('https://twitter.com/TheWhisperCafe')
 })
 
+app.get('/chat', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/index.html'))
+})
+
 app.get('/chat/:room', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/chat.html'));
 });
