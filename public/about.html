@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>if (location.protocol !== 'https:') {location.replace(`https:${location.href.substring(location.protocol.length)}`);}</script>
+		<link rel="icon" href="https://whisper.gg/images/whisper.png" type="image/gif" sizes="16x16">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="https://whisper.gg/css/info-style.css" />
+		<title>Whisper</title>
+	</head>
+	<body onload="load();">
+		<div id="amethyst" style="position: fixed; top: 0%; left: 0%; z-index: -3;"></div>
+		<div class="all-container">
+			<div class="info-container">
+				<header class="info-header">
+					<h1><i class="fas fa-fire"></i> Whisper</h1>
+				</header>
+				<main class="info-main">
+					<p>Whisper is dedicated to making anonymous communication as hassle-free as possible.</p>
+					<p>We believe in being able to freely talk without fear of being taken out of context.</p>
+				</main>
+			</div>
+		</div>
+		<script src='https://unpkg.com/trianglify@^4/dist/trianglify.bundle.js'></script>
+		<!--- Woah--->
+    <script>
+      function load() {
+        var amethyst = document.getElementById("amethyst");
+        while (amethyst.firstChild) {
+          amethyst.removeChild(amethyst.firstChild);
+        }
+        var colors = ['#347deb', '#34aeeb', '#347deb','#344feb', '#34c9eb']
+      var pattern = trianglify({
+      cellSize: 70,
+      variance: 1,
+      xColors: colors,
+      yColors: colors,
+      colorSpace: 'rgb',
+      strokeWidth: 1.51,
+      width: window.innerWidth,
+      height: window.innerHeight
+      });
+      document.getElementById('amethyst').appendChild(pattern.toCanvas())
+			}
+      window.addEventListener('resize', load);
+    </script>
+	</body>
+</html>

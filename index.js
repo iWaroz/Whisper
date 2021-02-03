@@ -68,6 +68,18 @@ app.get('/chat/:room', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/chat.html'));
 });
 
+app.get('/about', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/about.html'))
+})
+
+app.get('/login', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/login.html'))
+})
+
+app.get('/signup', function(req, res) {
+	res.sendFile(path.join(__dirname + '/public/signup.html'))
+})
+
 io.on('connection', socket => {
   socket.on('joinRoom', ({username,room}) => {
     const user = userJoin(socket.id, username, room);

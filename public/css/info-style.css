@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+:root {
+	--dark-color-a: #484959;
+	--dark-color-b: #5a5b6b;
+	--light-color: #cdcdd1;
+	--success-color: #5cb85c;
+	--error-color: #d9534f;
+	--whisper: #34aeeb;
+	--whisper-b: #347deb;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	margin: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+button {
+	text-align: center;
+	color: black;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+.all-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 2;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+.info-container {
+	width: 80vw;
+	height: 80vh;
+	color: #fff;
+	background: #484959;
+}
+
+@media (max-width: 600px) {
+	.info-container {
+		width: 100vw;
+		height: 100vh;
+		overflow: auto;
+	}
+
+	.all-container {
+		background: #5a5b6b;
+	}
+
+	input[type='text'] {
+		width: 90%;
+	}
+}
+
+.info-header {
+	text-align: center;
+	padding: 20px;
+	font-size: max(2vw, 30px);
+	background: var(--dark-color-a);
+}
+
+.info-main {
+	padding: 30px 40px;
+	background: var(--dark-color-b);
+}
+
+.info-main p {
+	font-size: max(1.5vw, 30px);
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.tooltip-info {
+	position: relative;
+	cursor: default;
+	font-size: 12px;
+}
+
+.tooltip-info::before,
+.tooltip-info::after {
+	--scale: 0;
+	--arrow-size: 5px;
+	--color: #242424;
+	position: absolute;
+	top: -.25rem;
+	left: 50%;
+	transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+	transition: 0.2s transform;
+	transform-origin: bottom center;
+}
+
+.tooltip-info::before {
+	--translate-y: calc(-100% - var(--arrow-size));
+	content: attr(data-tooltip);
+	color: white;
+	padding: .5rem;
+	border-radius: .3rem;
+	text-align: center;
+	width: max-content;
+	background: var(--color);
+}
+
+.tooltip-info:hover::before,
+.tooltip-info:hover::after {
+	--scale: 1;
+}
+
+.tooltip-info::after {
+	--translate-y: calc(-1 * var(--arrow-size));
+	content: '';
+	border: var(--arrow-size) solid transparent;
+	border-top-color: var(--color);
+	transform-origin: top;
+}
