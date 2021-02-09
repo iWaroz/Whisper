@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script>if (location.protocol !== 'https:') {location.replace(`https:${location.href.substring(location.protocol.length)}`);}</script>
-		<link rel="icon" href="https://whisper.gg/images/whisper.png" type="image/gif" sizes="16x16">
+		<link rel="icon" href="/images/whisper.png" type="image/gif" sizes="16x16">
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -12,19 +11,44 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="https://whisper.gg/css/info-style.css" />
+		<link rel="stylesheet" href="/css/index-style.css" />
 		<title>Whisper</title>
 	</head>
 	<body onload="load();">
 		<div id="amethyst" style="position: fixed; top: 0%; left: 0%; z-index: -3;"></div>
 		<div class="all-container">
-			<div class="info-container">
-				<header class="info-header">
+			<div class="join-container" id="join-main">
+				<header class="join-header">
 					<h1><i class="fas fa-fire"></i> Whisper</h1>
 				</header>
-				<main class="info-main">
-					<p>Whisper is dedicated to making anonymous communication as hassle-free as possible.</p>
-					<p>We believe in being able to freely talk without fear of being taken out of context.</p>
+				<main class="join-main tab">
+					<form action="connect" autocomplete="off">
+						<div class="form-control">
+							<label for="username">Username</label>
+							<input
+								type="text"
+								name="username"
+								id="username"
+								placeholder="What should people call you?"
+								required
+								size="40"
+							/>
+						</div>
+						<div class="form-control" id="connect">
+							<label for="room">Room Name</label>
+							<input
+								type="text"
+								name="room"
+								id="room"
+								placeholder="Leave empty to randomize" 
+								size="40"
+							/>
+						</div>
+						<!--<button type="submit" class="btn submitbtn"><a  class='fas fa-comment'></a> Chat</button>-->
+						<div class="align-btnsc">
+						<button class="btn-sc"><span>Start Chatting</span></button>
+						</div>
+					</form>
 				</main>
 			</div>
 		</div>
@@ -32,6 +56,15 @@
 		<!--- Woah--->
     <script>
       function load() {
+				if (window.innerWidth > 600) {
+				var scale = Math.min( 
+					(window.innerWidth * 0.6) / 500, 
+					(window.innerHeight * 0.6) / 361 
+				);
+				document.getElementById('join-main').style.transform = "scale(" + scale + ")";
+			} else {
+				document.getElementById('join-main').style.transform = "";
+			}
         var amethyst = document.getElementById("amethyst");
         while (amethyst.firstChild) {
           amethyst.removeChild(amethyst.firstChild);
