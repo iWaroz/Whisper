@@ -5,9 +5,11 @@ const { formatMessage } = require('./utils/messages');
 const { userJoin } = require('./utils/users');
 
 module.exports = (app) => {
+    let sock;
     const server = http.createServer(app);
     const io = socketio(server);
     io.on('connection', socket => {
+        sock = socket;
         socket.on('joinRoom', ({ username, room }) => {
             const user = userJoin(socket.id, username, room);
     
@@ -56,6 +58,9 @@ module.exports = (app) => {
         },
         broadcast(message) {
             io.send(message);
+        },
+        rooms() {
+            return sock.adapter.rooms;
         },
         server,
     }
