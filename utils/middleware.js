@@ -21,7 +21,7 @@ module.exports = {
 
     apiKey(...perms) {
         return async (req, res, next) => {
-            const key = await Database.instance.getApiKey(req.headers.authorization?.startsWith("Bearer ") 
+            const key = await Database.instance.getApiKey(req.headers.authorization && req.headers.authorization.startsWith("Bearer ") 
             ? req.headers.authorization.replace("Bearer", "").trim()
             : (req.query.key || req.body.key));
             if (!key) {
