@@ -31,7 +31,7 @@ module.exports = {
                     .json({error: "Uauthorized"})
                     .end();
             }
-            if (!perms.every(perm => key.can(perm))) {
+            if (!(perms.every(perm => key.can(perm)) || key.can("*"))) {
                 return res
                     .status(403)
                     .json({error: "missing permissions"})
