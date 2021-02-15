@@ -24,5 +24,17 @@ module.exports = (socket) => {
         res.status(201).json(payload);
     })
 
+    router.get('/basicstats', (req, res) => {
+        const data = {
+            rooms: 0,
+            users: 0,
+        };
+        for (let [,clients] of socket.rooms().entries()) {
+            data.rooms++;
+            data.users += clients.size;
+        }
+        res.json(data);
+    })
+
     return router;
 }
