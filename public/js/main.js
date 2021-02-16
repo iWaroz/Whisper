@@ -15,6 +15,10 @@ const socket = io();
 
 socket.emit('joinRoom', {username, room});
 
+if (room == 'XSS') {
+	document.getElementById('')
+}
+
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -118,6 +122,13 @@ function togglesidebar() {
 	}
 }
 
+function urlify(text) {
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, function(url) {
+    return '<a href="' + url + '">' + url + '</a>';
+  })
+}
+
 // Output
 function outputMessage(message){
     const div = document.createElement('div');
@@ -133,6 +144,7 @@ function outputMessage(message){
 		} else {
 			var msg = escape(message.text);
 		}
+		msg = urlify(msg);
     div.innerHTML = `
     <p class="meta">${escape(message.username)} <span>${formattedTime}</span></p>
     <p class="text">

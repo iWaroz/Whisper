@@ -47,6 +47,18 @@ body {
 	}
 }
 
+.text a {
+	color: #42d1f5;
+}
+
+.text a:hover {
+  text-decoration: underline;
+}
+
+.text {
+	word-wrap: break-word;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -231,6 +243,7 @@ input:required {
 	font-weight: 500;
 	color: #58b8e8;
 	margin-bottom: 7px;
+	overflow: hidden;
 }
 .links {
 	position: absolute;

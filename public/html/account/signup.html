@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="icon" href="/images/whisper.png" type="image/gif" sizes="16x16">
+		<link rel="icon" href="https://whisper.gg/images/whisper.png" type="image/gif" sizes="16x16">
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -11,7 +11,7 @@
 			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="/css/index-style.css" />
+		<link rel="stylesheet" href="https://whisper.gg/css/index-style.css" />
 		<title>Whisper</title>
 	</head>
 	<body onload="load();">
@@ -19,34 +19,44 @@
 		<div class="all-container">
 			<div class="join-container" id="join-main">
 				<header class="join-header">
-					<h1><i class="fas fa-fire"></i> Whisper</h1>
+					<h1><i class="fas fa-fire"></i> Create an Account</h1>
 				</header>
 				<main class="join-main tab">
-					<form action="connect" autocomplete="off">
+					<form action="api/signup" autocomplete="off" method="post">
 						<div class="form-control">
 							<label for="username">Username</label>
 							<input
 								type="text"
 								name="username"
 								id="username"
-								placeholder="What should people call you?"
+								placeholder="What's your cool nickname?"
 								required
 								size="40"
 							/>
 						</div>
-						<div class="form-control" id="connect">
-							<label for="room">Room Name</label>
+						<div class="form-control">
+							<label for="room">Email</label>
 							<input
 								type="text"
-								name="room"
-								id="room"
-								placeholder="Leave empty to randomize" 
+								name="email"
+								id="email"
+								placeholder="We won't sell this, don't worry!" 
+								size="40"
+							/>
+						</div>
+						<div class="form-control">
+							<label for="room">Password</label>
+							<input
+								type="password"
+								name="password"
+								id="password"
+								placeholder="Stronky password please" 
 								size="40"
 							/>
 						</div>
 						<!--<button type="submit" class="btn submitbtn"><a  class='fas fa-comment'></a> Chat</button>-->
 						<div class="align-btnsc">
-						<button class="btn-sc"><span>Start Chatting</span></button>
+						<button class="btn-sc"><span>Create Account</span></button>
 						</div>
 					</form>
 				</main>

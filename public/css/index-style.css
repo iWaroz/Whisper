@@ -70,6 +70,9 @@ button {
 	input[type='text'] {
 		width: 90%;
 	}
+	input[type='password'] {
+		width: 90%;
+	}
 }
 
 .join-header {
@@ -97,6 +100,13 @@ button {
 }
 
 .join-main input[type='text'] {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	width: 100%;
+}
+
+.join-main input[type='password'] {
 	font-size: 16px;
 	padding: 5px;
 	height: 40px;

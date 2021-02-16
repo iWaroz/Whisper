@@ -8,7 +8,8 @@ const staticFiles = {
     "/chat/:room": "/public/html/chat.html",
     "/about": "/public/html/static/about.html",
     "/login": "/public/html/account/login.html",
-    "/signup": "/public/html/account/signup.html"
+    "/signup": "/public/html/account/signup.html",
+		"/stats": "/public/html/stats.html"
 };
 
 const redirects = {
