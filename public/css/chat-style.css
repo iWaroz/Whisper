@@ -544,3 +544,9 @@ button {
   -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
   transform: translateX(-9%) translateY(-25%) rotate(45deg);
 }
+
+@media (max-width: 350px) {
+	.send-span {
+		display: none;
+	}
+}

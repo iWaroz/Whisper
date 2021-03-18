@@ -23,30 +23,23 @@
 					<h1><i class="fas fa-fire"></i> Whisper</h1>
 				</header>
 				<main class="join-main tab">
-					<form action="connect" autocomplete="off">
+					<form action="send-support" autocomplete="off">
 						<div class="form-control">
-							<label for="username">Username</label>
-							<input
+							<label for="message">Your Message</label>
+							<textarea
 								type="text"
-								name="username"
-								id="username"
-								placeholder="What should people call you?"
+								name="message"
+								id="message"
+								placeholder="This will be seen by the developers, please be courteous."
 								required
-								size="40"
-							/>
-						</div>
-						<div class="form-control" id="connect">
-							<label for="room">Room Name</label>
-							<input
-								type="text"
-								name="room"
-								id="room"
-								placeholder="Leave empty to randomize" 
-								size="40"
-							/>
+								cols="40"
+								rows="10"
+								maxlength="1000"
+								minlength="20"
+							></textarea>
 						</div>
 						<div class="align-btnsc">
-						<button class="btn-sc"><span>Start Chatting</span></button>
+						<button class="btn-sc"><span>Send</span></button>
 						</div>
 					</form>
 				</main>

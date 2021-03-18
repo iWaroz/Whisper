@@ -108,6 +108,7 @@ document.body.onblur = function(e) {
 document.body.onfocus = function(e) {
 	sendnotif = false;
 	document.title = "Whisper Room";
+	notif = 0;
 }
 
 var sidebar = false;

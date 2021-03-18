@@ -49,6 +49,10 @@ button {
 	padding: 0;
 }
 
+textarea {
+	resize: none;
+}
+
 .join-container {
 	width: 500px;
 	height: fit-content(80vh);

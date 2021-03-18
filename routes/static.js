@@ -9,7 +9,8 @@ const staticFiles = {
     "/about": "/public/html/static/about.html",
     "/login": "/public/html/account/login.html",
     "/signup": "/public/html/account/signup.html",
-		"/stats": "/public/html/stats.html"
+		"/stats": "/public/html/stats.html",
+		"/contact": "/public/html/contact.html"
 };
 
 const redirects = {
