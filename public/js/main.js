@@ -4,38 +4,20 @@ const roomName = document.getElementById('room-name');
 const ignForm = document.getElementById('ign-form');
 // Get username and room from URL
 
-var room = location.pathname.split('?')[0].split('/chat/')[1];
-var username = getCookie('usernameRedirect');
+var urlParams = new URLSearchParams(window.location.search);
 
-if (username == "Anonymous") {
+var room = location.pathname.split('?')[0].split('/c/')[1];
+
+if (urlParams.has('u')) {
+	var username = urlParams.get('u');
+	window.history.replaceState({}, null, `/c/${room}`);
+} else {
 	changeusername();
 }
 
 const socket = io();
 
 socket.emit('joinRoom', {username, room});
-
-if (room == 'XSS') {
-	document.getElementById('')
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "Anonymous";
-}
-
-document.cookie = "usernameRedirect=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 
 socket.on('message', message => {
     outputMessage(message);
@@ -140,11 +122,7 @@ function outputMessage(message){
 		var minutes = "0" + date.getMinutes();
 		var seconds = "0" + date.getSeconds();
 		var formattedTime = hours + ':' + minutes.substr(-2);
-		if (room == "XSS") {
-			var msg = message.text.replace('<script>', '<img src onerror="').replace('</script>', '">');
-		} else {
-			var msg = escape(message.text);
-		}
+		var msg = escape(message.text);
 		msg = urlify(msg);
     div.innerHTML = `
     <p class="meta">${escape(message.username)} <span>${formattedTime}</span></p>
@@ -176,7 +154,7 @@ function outputBotMessage(message){
 
 function copylink() {
 	var textArea = document.createElement("textarea");
-	textArea.value = `https://whisper.gg/chat/${room}`
+	textArea.value = `https://whisper.gg/c/${room}`
 	document.body.appendChild(textArea);
 	textArea.focus();
 	textArea.select();

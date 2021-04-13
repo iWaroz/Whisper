@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.get('/connect', validateQuery('username'), (req, res) => {
     const room = req.query.room || makeid(15);
-    res.cookie('usernameRedirect', req.query.username, { maxAge: 15000000, path: "/chat/" + room });
-    res.redirect(`/chat/${room}`)
+    // res.cookie('usernameRedirect', req.query.username, { maxAge: 15000000, path: "/c/" + room });
+    res.redirect(`/c/${room}?u=${req.query.username}`)
 })
 
 module.exports = router;
