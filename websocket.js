@@ -37,8 +37,9 @@ module.exports = (app) => {
     
             // This listens for messages Which are Emitted in public/js/main.js and then handles the UI to see the message
             socket.on('chatMessage', (msg) => {
+                if (typeof msg !== "string") return
                 io.to(user.room).emit('message', formatMessage(user.username, msg));
-            })
+            });
     
             socket.on('disconnect', () => {
                 for (const [key, value] of users.entries()) {
