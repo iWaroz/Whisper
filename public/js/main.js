@@ -72,7 +72,7 @@ socket.on('userConnect', count => {
 })
 
 function escape(t) {
-	return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+	return t?.replaceAll('&', '&amp;')?.replaceAll('<', '&lt;')?.replaceAll('>', '&gt;')
 }
 
 function changeusername() {
