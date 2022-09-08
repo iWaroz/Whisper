@@ -4,7 +4,7 @@ const { Webhook, MessageBuilder } = require('discord-webhook-node');
 const { validateQuery } = require('../utils/middleware');
 const { makeid } = require('../utils/utils');
 
-router.get('/contact-send', validateQuery('message'), (req, res) => {
+router.get('/send-support', validateQuery('message'), (req, res) => {
 	const hook = new Webhook(process.env.WEBHOOK);
 
 	const IMAGE_URL = 'https://whisper.gg/images/whisper.png';
