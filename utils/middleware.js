@@ -1,5 +1,3 @@
-const Database = require("../database");
-
 module.exports = {
 
     validateQuery(...fields) {

@@ -7,8 +7,6 @@ const websocket = require('./websocket');
 const app = express();
 const socket = websocket(app);
 
-const database = require('./database').connect();
-
 app.use(express.json());
 
 // routes
