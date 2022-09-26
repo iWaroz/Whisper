@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "run": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +20,8 @@
     "nunjucks": "^3.2.2",
     "socket.io": "^3.0.4",
     "ws": "^7.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
