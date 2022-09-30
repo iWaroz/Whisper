@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "ES6",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "outDir": "build",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        },
+        "lib": ["es2021.promise", "DOM", "es2021"]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "src/public/**/*"
+    ]
+}
